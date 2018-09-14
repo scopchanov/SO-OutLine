@@ -37,11 +37,9 @@ void OutLineItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 	outline.lineTo(line().p2());
 
 	painter->save();
-
+	painter->setRenderHint(QPainter::Antialiasing);
 	painter->strokePath(outline, QPen(m_outlineColor, 2*m_outlineWidth + pen().width()));
-
 	painter->setPen(pen());
 	painter->drawLine(line());
-
 	painter->restore();
 }
